@@ -1,0 +1,44 @@
+<form [formGroup]="login">
+  <label>userName<span>*</span></label>
+  <input
+    type="text"
+    class="form-control w-50 m-2"
+    formControlName="uname"
+    placeholder="please enter username"
+  />
+  <div
+    *ngIf="
+      login.get('uname').touched && login.get('uname').hasError('required')
+    "
+    class="err-msg"
+  >
+    username is required
+  </div>
+  <div
+    class="err-msg"
+    *ngIf="
+      login.get('uname').touched && login.get('uname').hasError('minlength')
+    "
+  >
+    username is minimum 8 characters
+  </div>
+  <label>Password<span>*</span></label>
+  <input
+    type="password"
+    class="form-control w-50 m-2"
+    formControlName="password"
+  />
+  <div class="btn-container">
+    <button
+      type="submit"
+      (click)="submit()"
+      class="btn btn-primary"
+      [disabled]="isBtn"
+    >
+      Submit
+    </button>
+    <button type="reset" class="btn btn-primary" (click)="reset()">
+      Reset
+    </button>
+  </div>
+</form>

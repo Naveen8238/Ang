@@ -1,0 +1,134 @@
+<form [formGroup]="login">
+  <label>userName</label>
+  <input
+    type="text"
+    class="form-control w-50 m-2"
+    formControlName="uname"
+    placeholder="please enter username"
+  />
+  <div
+    *ngIf="
+      login.get('uname').touched && login.get('uname').hasError('required')
+    "
+    class="err-msg"
+  >
+    username is required
+  </div>
+  <div
+    class="err-msg"
+    *ngIf="
+      login.get('uname').touched && login.get('uname').hasError('minlength')
+    "
+  >
+    username is minimum 8 characters
+  </div>
+  <label>Email <span>*</span> </label>
+  <input
+    type="email"
+    class="form-control w-50 m-2"
+    formControlName="email"
+    placeholder="enter  your email"
+  />
+  <div
+    *ngIf="
+      login.get('email').touched && login.get('email').hasError('required')
+    "
+    class="err-msg"
+  >
+    email is required
+  </div>
+  <div
+    *ngIf="login.get('email').touched && login.get('email').hasError('pattern')"
+    class="err-msg"
+  >
+    please enter valid email
+  </div>
+  <label>Password<span>*</span></label>
+  <input
+    type="password"
+    class="form-control w-50 m-2"
+    formControlName="password"
+  />
+  <div
+    *ngIf="
+      login.get('password').touched &&
+      login.get('password').hasError('required')
+    "
+    class="err-msg"
+  >
+    password is required
+  </div>
+  <div
+    *ngIf="
+      login.get('password').touched && login.get('password').hasError('pattern')
+    "
+    class="err-msg"
+  >
+    Password must contain at least one lowercase letter, one uppercase letter,
+    and one digit.
+  </div>
+  <div
+    *ngIf="
+      login.get('password').touched &&
+      login.get('password').hasError('minlength')
+    "
+    class="err-msg"
+  >
+    password must contains 5 letters
+  </div>
+  <label> Confirm Password<span>*</span></label>
+  <input
+    type="password"
+    class="form-control w-50 m-2"
+    formControlName="cpassword"
+  />
+  <div
+    *ngIf="
+      login.get('cpassword').touched &&
+      login.get('cpassword').hasError('required')
+    "
+    class="err-msg"
+  >
+    must be enter confirm password
+  </div>
+  <div
+    *ngIf="
+      login.get('cpassword').touched &&
+      login.value.password !== login.value.cpassword
+    "
+    class="err-msg"
+  >
+    password and confirm password should not be match
+  </div>
+  <label>Mobile Number</label>
+  <input type="text" class="form-control w-50 m-2" formControlName="mobile" />
+  <div
+    *ngIf="
+      login.get('mobile').touched && login.get('mobile').hasError('required')
+    "
+    class="err-msg"
+  >
+    mobile is required
+  </div>
+  <div
+    *ngIf="
+      login.get('mobile').touched && login.get('mobile').hasError('pattern')
+    "
+    class="err-msg"
+  >
+    please enter valid mobile number
+  </div>
+  <div class="btn-container">
+    <button
+      type="submit"
+      (click)="submit()"
+      class="btn btn-primary"
+      [disabled]="!login.valid || login.value.password != login.value.cpassword"
+    >
+      Submit
+    </button>
+    <button type="reset" class="btn btn-primary" (click)="reset()">
+      Reset
+    </button>
+  </div>
+</form>

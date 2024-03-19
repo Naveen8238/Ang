@@ -1,0 +1,6 @@
+<button class="btn btn-primary" (click)="getTodos()">GET Todos</button>
+<div class="container mt-4">
+  <ul class="list-group">
+    <li *ngFor="let t of todos" class="list-group-item">{{ t }}</li>
+  </ul>
+</div>

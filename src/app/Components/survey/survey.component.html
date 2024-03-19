@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="aside">
+    <mat-drawer class="example-sidenav" opened *ngFor="let item of Data">
+      <button
+        mat-raised-button
+        id="item-1"
+        (click)="setActive(item)"
+        [style.background-color]="activeButton(item) ? 'green' : 'white'"
+      >
+        <img [src]="item.logo" [alt]="item.id" class="img-1" />
+        {{ item.title }}
+      </button>
+    </mat-drawer>
+  </div>
+  <div class="section">
+    <div class="example-sidenav-content" *ngFor="let item of program">
+      <div class="item">
+        <h1 class="heading">{{ item.title }}</h1>
+        <p class="text">{{ item.completed }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="container">
+  <a
+    class="card-child"
+    *ngFor="let item of items"
+    [routerLink]="['/item']"
+    [queryParams]="{ id: item.id }"
+  >
+    <h1 class="card-title">{{ item.id }}</h1>
+    <img [src]="item.url" [alt]="item.id" class="card-img" />
+    <p class="card-footer">{{ item.title }}</p>
+  </a>
+</div>

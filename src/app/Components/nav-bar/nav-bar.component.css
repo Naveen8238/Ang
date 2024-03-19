@@ -1,0 +1,38 @@
+.container{
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+    list-style-type: none;
+    margin: 10px;
+}
+.btn{
+    width: 200px;
+    height: 50px;
+    color:white;
+    border:2px solid black;
+    border-radius: 10px;
+    background-color: rgb(144, 202, 68);
+    color:black;
+}
+.btn-container{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+}
+.main-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    color:black
+}
+a{
+    color:black;
+    text-decoration: none;
+}
+.btn-color{
+    margin: 5px;
+}
+

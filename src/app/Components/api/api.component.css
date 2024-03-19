@@ -1,0 +1,42 @@
+.form-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0, 0, 0.5);
+    z-index: 100;
+}
+.post-form{
+    background-color: white;
+    width: 600px;
+    padding: 20px 50px;
+    border-radius: 5px;
+}
+.form-control{
+    width: 90%;
+}
+.child{
+    display: flex;
+    margin:15px 0;
+}
+.child label{
+    width:70px;
+    line-height: 40px;
+    height: 40px;  
+}
+.lead{
+    color: black;
+}
+.list-group-item{
+    width: 100%;
+    height: 50px;
+}
+.list-button{
+    width: 100%;
+    height: 50px;
+    border: none;
+}

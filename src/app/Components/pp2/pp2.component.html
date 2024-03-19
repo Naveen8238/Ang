@@ -1,0 +1,86 @@
+<form #signUp="ngForm" (ngSubmit)="submit(signUp)">
+  <label>UserName:</label>
+  <input
+    required
+    minlength="3"
+    maxlength="10"
+    type="text"
+    placeholder="enter your name"
+    ngModel
+    name="username"
+    #username="ngModel"
+    class="form-control w-50 m-2"
+  />
+  <div *ngIf="username.touched && !username.valid" class="err-msg">
+    <div *ngIf="username.errors?.['required']">UserName is Required</div>
+    <div *ngIf="username.errors?.['minlength']">Name will be min 3</div>
+  </div>
+  <label>Email:</label>
+  <input
+    type="email"
+    placeholder="enter your email"
+    name="email"
+    ngModel
+    #email="ngModel"
+    required
+    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+    class="form-control w-50 m-2"
+  />
+  <div *ngIf="email.touched && !email.valid" class="err-msg">
+    <div *ngIf="email.errors?.['required']">Email is Required</div>
+    <div *ngIf="email.errors?.['pattern']">please enter valid email</div>
+  </div>
+  <label>Password:</label>
+  <input
+    required
+    type="password"
+    placeholder="enter your password"
+    name="pass"
+    ngModel
+    minlength="5"
+    #pass="ngModel"
+    class="form-control w-50 m-2"
+  />
+  <div *ngIf="pass.touched && !pass.valid" class="err-msg">
+    <div *ngIf="pass.errors?.['required']">password is Required</div>
+    <div *ngIf="pass.errors?.['minlength']">password will be min 5</div>
+  </div>
+  <label>Confirm Password:</label>
+  <input
+    type="password"
+    placeholder="enter your Confirm Password"
+    name="cpass"
+    required
+    ngModel
+    #cpass="ngModel"
+    class="form-control w-50 m-2"
+  />
+  <div *ngIf="cpass.touched && !pass.valid" class="err-msg">
+    <div *ngIf="cpass.errors?.['required']">Confirm password is Required</div>
+  </div>
+  <div *ngIf="cpass.touched && cpass.valid" class="err-msg">
+    <div *ngIf="pass.value !== cpass.value">Confirm Password is not match</div>
+  </div>
+  <label>MobileNumber:</label>
+  <input
+    type="tel"
+    placeholder="enter your mobile number"
+    ngModel
+    #mobile="ngModel"
+    name="mobile"
+    maxlength="10"
+    pattern="[0-9]{10}"
+    required
+    class="form-control w-50 m-2"
+  />
+  <div *ngIf="mobile.touched && !mobile.valid" class="err-msg">
+    <div *ngIf="mobile.errors?.['required']">Mobile number is required</div>
+    <div *ngIf="mobile.errors?.['pattern']">please enter valiad email</div>
+  </div>
+  <div class="btn-container">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="reset" class="btn btn-primary" (click)="reset()">
+      Reset
+    </button>
+  </div>
+</form>

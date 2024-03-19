@@ -1,0 +1,49 @@
+<!-- <div class="container">
+  <div class="card-child" *ngFor="let item of user">
+    <h1 class="card-title">{{ item.id }}</h1>
+    <img [src]="item.url" [alt]="item.id" class="card-img" />
+    <p class="card-footer">{{ item.title }}</p>
+  </div>
+</div> -->
+<div class="container-fluid mt-5">
+  <div class="input-group mb-3">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Text input with checkbox"
+        [value]="user.title"
+        #inputChange
+      />
+      <button type="button" class="btn btn-primary" (click)="openForm()">
+        ADD
+      </button>
+    </div>
+    <div
+      class="w-full h-full d-flex flex-wrap p-10 align-items-center justify-content-center"
+    >
+      <div class="card w-25 m-4 p-10" *ngFor="let post of user">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <p class="card-text">{{ post.body }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <button
+              type="button"
+              class="btn btn-success p-2 w-10"
+              (click)="openForm()"
+            >
+              EDIT
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="delete(post.id)"
+            >
+              DELETE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

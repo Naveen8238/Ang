@@ -1,0 +1,19 @@
+<form action="" ngForm #login="ngForm" (ngSubmit)="submit(login)">
+  <label>userName :</label>
+  <input
+    type="text"
+    required
+    name="uname"
+    #un="ngModel"
+    ngModel
+    minlength="20"
+  />
+  <ng-container *ngIf="un.touched">
+    <p class="err-msg" *ngIf="un.errors?.['required'] ">userName is required</p>
+  </ng-container>
+  <br />
+  <label>firstName</label>
+  <input type="text" required name="un" #un="ngModel" ngModel minlength="20" />
+  <br />
+  <button type="submit">Submit</button>
+</form>
