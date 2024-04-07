@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class DataServicesService { 
+export class DataServicesService {
+  data: any; 
 
   constructor( ) {}
   Data:any=[
